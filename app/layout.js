@@ -9,7 +9,7 @@ const geistSans = Geist({
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata = {
@@ -23,6 +23,7 @@ export default function RootLayout({ children }) {
       <body className={`${inter.variable} antialiased`}>
         <Navbar />
         {children}
+        <footer className="pt-10"></footer>
       </body>
     </html>
   );
