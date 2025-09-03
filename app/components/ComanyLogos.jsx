@@ -18,10 +18,11 @@ const CompanyLogos = () => {
 
   return (
     <div className="max-w-8xl mx-auto px-6 py-6 lg:px-8 py-12 space-y-6">
-      <p className="text-center text-gray-600 text-base">
+      <p className="text-center text-gray-600 text-sm font-medium md:text-base">
         Join 4,000+ companies already growing
       </p>
-      <div className="flex flex-wrap justify-center items-center gap-8 opacity-90">
+      {/* Small/Medium: grid, Large: flex */}
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-8 justify-items-center lg:flex lg:flex-wrap lg:justify-center lg:items-center">
         {images.map((img, index) => (
           <Image
             key={index}
