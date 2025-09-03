@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import logo from "../../public/images/Logo.png";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 
 const links = [
   { href: "#", label: "Home", iDown: false },
@@ -58,36 +58,19 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            aria-label="Open menu"
-            aria-expanded={open}
-            onClick={() => setOpen((v) => !v)}
-            className="ml-auto md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md ring-1 ring-white/15 hover:bg-white/5"
-          >
-            <span
-              className={`block h-0.5 w-5 bg-white transition-all ${
-                open ? "translate-y-0.5 rotate-45" : "-translate-y-1"
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-white transition-opacity ${
-                open ? "opacity-0" : "opacity-100"
-              }`}
-            />
-            <span
-              className={`block h-0.5 w-5 bg-white transition-all ${
-                open ? "-translate-y-0.5 -rotate-45" : "translate-y-1"
-              }`}
-            />
-          </button>
+          {/* Mobile Menu Button */}
+          <div className="ml-auto md:hidden inline-flex h-10 w-10 items-center justify-center rounded-md ring-1 ring-white/15 hover:bg-white/5">
+            <button className="text-white" onClick={() => setOpen(!open)}>
+              {open ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile dropdown */}
         {open && (
           <div className="md:hidden">
-            <div className="mt-2 rounded-lg border border-white/10 bg-black/20 backdrop-blur p-3">
-              <ul className="flex flex-col divide-y divide-white/10">
+            <div className="mt-2 rounded-lg  p-3">
+              <ul className="flex flex-col">
                 {links.map((l) => (
                   <li key={l.label}>
                     <Link
@@ -96,6 +79,12 @@ export default function Navbar() {
                       onClick={() => setOpen(false)}
                     >
                       {l.label}
+                      {l.iDown && (
+                        <ChevronDown
+                          className="inline-block ml-1 mb-1"
+                          size={16}
+                        />
+                      )}
                     </Link>
                   </li>
                 ))}
@@ -103,14 +92,14 @@ export default function Navbar() {
               <div className="mt-3 flex gap-2">
                 <Link
                   href="#"
-                  className="flex-1 rounded-md px-3 py-2 text-center text-white/90 ring-1 ring-white/20 hover:bg-white/10"
+                  className="flex-1 rounded-md  text-center text-white"
                   onClick={() => setOpen(false)}
                 >
                   Log in
                 </Link>
                 <Link
                   href="#"
-                  className="flex-1 rounded-md bg-white px-3 py-2 text-center font-semibold text-[#6C3CF6] hover:opacity-90"
+                  className="flex-1 rounded-md  text-white px-3 py-2 text-center font-semibold bg-[#7F56D9] hover:opacity-90"
                   onClick={() => setOpen(false)}
                 >
                   Sign up

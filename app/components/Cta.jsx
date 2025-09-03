@@ -2,10 +2,10 @@ import Image from "next/image";
 import image from "../../public/images/Image.png";
 export default function Cta() {
   return (
-    <section className="max-w-7xl mx-auto px-3 lg:px-8 py-10">
+    <section className="max-w-7xl mx-auto px-3 lg:px-8 py-6">
       <div className="flex flex-col md:flex-row items-center bg-white overflow-hidden rounded-xl">
         {/* Left Content */}
-        <div className="flex-1 space-y-4 bg-[#53389E] text-white px-10 py-12 lg:px-29 lg:py-32 md:rounded-l-3xl">
+        <div className="flex-1 space-y-4 bg-[#53389E] text-white px-10 py-10 lg:px-29 lg:py-32 md:rounded-l-3xl">
           <h1 className="text-3xl md:text-4xl font-bold">Give us a shot</h1>
           <p className="text-sm md:text-lg leading-[24px] max-w-lg text-[#E9D7FE]">
             Join over 4,000+ startups already growing with Untitled.
